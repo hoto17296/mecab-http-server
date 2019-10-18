@@ -21,3 +21,21 @@ $ curl http://localhost/ -XPOST -d 'メロスは激怒した。'
 。      記号,句点,*,*,*,*,。,。,。
 EOS
 ```
+
+## Python Example
+``` python
+import urllib.request
+
+class MeCab:
+
+    def __init__(self, url: str):
+        self.url = url
+
+    def __call__(self, text: str) -> str:
+        req = urllib.request.Request(self.url, text.encode())
+        with urllib.request.urlopen(req) as res:
+            return res.read().decode()
+
+mecab = MeCab('http://<hostname>/')
+print(mecab('メロスは激怒した。'))
+```
