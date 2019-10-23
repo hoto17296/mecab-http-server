@@ -1,18 +1,18 @@
-# MeCab API
+# MeCab HTTP Server
 
 ## Setup
 ``` console
-$ docker build -t mecab-api .
+$ docker build -t mecab-http-server .
 ```
 
 ## Run Server
 ```
-$ docker run --rm -d -p 80:8080 mecab-api
+$ docker run --rm -d -p 8080:8080 mecab-http-server
 ```
 
 ## Request Example
 ``` console
-$ curl http://localhost/ -XPOST -d 'メロスは激怒した。'
+$ curl http://localhost:8080/ -XPOST -d 'メロスは激怒した。'
 メロス  名詞,一般,*,*,*,*,*
 は      助詞,係助詞,*,*,*,*,は,ハ,ワ
 激怒    名詞,サ変接続,*,*,*,*,激怒,ゲキド,ゲキド
